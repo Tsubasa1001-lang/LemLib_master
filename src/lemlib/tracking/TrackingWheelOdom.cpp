@@ -191,9 +191,14 @@ void TrackingWheelOdometry::update(Time period) {
         const TrackingWheelData verticalData = findLateralDelta(m_verticalWheels);
 
         // step 2: calculate heading
-        const std::optional<Angle> thetaOpt = calculateIMUHeading(m_Imus)
-                                                  .or_else(std::bind(&calculateWheelHeading, m_horizontalWheels))
-                                                  .or_else(std::bind(&calculateWheelHeading, m_verticalWheels));
+        std::optional<Angle> thetaOpt = calculateIMUHeading(m_Imus);
+        if (!thetaOpt.has_value()) {
+            thetaOpt = calculateWheelHeading(m_horizontalWheels);
+        }
+        if (!thetaOpt.has_value()) {
+            thetaOpt = calculateWheelHeading(m_verticalWheels);
+        }
+        
         if (thetaOpt == std::nullopt) { // error checking
             helper.log(logger::Level::ERROR, "Not enough sensors available!");
             break;
