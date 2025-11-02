@@ -1,0 +1,40 @@
+0, 0, 96.04
+0.033, 2, 96.04
+0.099, 3.998, 93.875
+0.21, 5.995, 91.129
+0.404, 7.986, 88.298
+0.674, 9.967, 85.373
+1.039, 11.932, 82.346
+1.527, 13.871, 79.203
+2.17, 15.763, 75.93
+3.018, 17.572, 72.512
+4.133, 19.229, 68.926
+5.529, 20.653, 66.233
+7.19, 21.757, 71.813
+9.037, 22.517, 81.69
+10.976, 23.005, 83.589
+12.949, 23.331, 80.493
+14.928, 23.615, 77.273
+16.896, 23.973, 73.914
+18.817, 24.521, 70.396
+20.625, 25.366, 66.699
+22.225, 26.556, 67.82
+23.554, 28.045, 70.501
+24.584, 29.756, 66.806
+25.388, 31.585, 62.893
+25.994, 33.49, 58.717
+26.447, 35.438, 54.22
+26.783, 37.41, 49.313
+27.019, 39.395, 43.861
+27.183, 41.388, 37.629
+27.294, 43.385, 30.133
+27.353, 45.384, 20
+27.369, 46.871, 0
+27.369, 46.871, 0
+27.585, 66.87, 0
+endData
+127
+100
+200
+0, 0, 0, 43.044, 27.369, 3.827, 27.369, 46.871
+#PATH.JERRYIO-DATA {"appVersion":"0.10.0","format":"LemLib v0.5","gc":{"robotWidth":12,"robotHeight":12,"robotIsHolonomic":false,"showRobot":false,"uol":2.54,"pointDensity":2,"controlMagnetDistance":1.968503937007874,"fieldImage":{"displayName":"V5RC 2026 - Push Back","signature":"V5RC-PushBack-H2H-TopDownHighlighted-TileColor66_71","origin":{"__type":"built-in"}},"coordinateSystem":"VEX Gaming Positioning System"},"paths":[{"segments":[{"controls":[{"uid":"6nwr1bTIjH","x":0,"y":0,"lock":false,"visible":true,"heading":0,"__type":"end-point"},{"uid":"v0TqdtKIVR","x":0,"y":43.04386351116057,"lock":false,"visible":true,"__type":"control"},{"uid":"B7CyW9jBVP","x":27.36928448006937,"y":3.826801521262496,"lock":false,"visible":true,"__type":"control"},{"uid":"fjWGdxVKcM","x":27.36928448006937,"y":46.87066503242307,"lock":false,"visible":true,"heading":0,"__type":"end-point"}],"speedProfiles":[],"lookaheadKeyframes":[],"uid":"Pjl3xSsJrQ"}],"pc":{"speedLimit":{"minLimit":{"value":0,"label":"0"},"maxLimit":{"value":127,"label":"127"},"step":1,"from":20,"to":100},"bentRateApplicableRange":{"minLimit":{"value":0,"label":"0"},"maxLimit":{"value":1,"label":"1"},"step":0.001,"from":0,"to":0.1},"maxDecelerationRate":127},"name":"Path","uid":"95Y247573Z","lock":false,"visible":true}]}
