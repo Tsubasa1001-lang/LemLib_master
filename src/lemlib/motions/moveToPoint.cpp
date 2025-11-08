@@ -12,6 +12,20 @@ static logger::Helper logHelper("lemlib/motions/moveToPoint");
 
 void moveToPoint(V2Position target, Time timeout, MoveToPointParams params, MoveToPointSettings settings) {
     logHelper.info("moving to point {}", target);
+    
+    // 參數驗證
+    if (timeout <= 0_sec) {
+        logHelper.error("Invalid timeout: {}", timeout);
+        return;
+    }
+    if (params.maxLateralSpeed <= 0 || params.maxAngularSpeed <= 0) {
+        logHelper.error("Invalid max speeds: lateral={}, angular={}", params.maxLateralSpeed, params.maxAngularSpeed);
+        return;
+    }
+    if (params.minLateralSpeed < 0) {
+        logHelper.error("Invalid min lateral speed: {}", params.minLateralSpeed);
+        return;
+    }
 
     // initialize persistent variables
     const Angle initialAngle = settings.poseGetter().angleTo(target);
@@ -30,8 +44,8 @@ void moveToPoint(V2Position target, Time timeout, MoveToPointParams params, Move
         // check if the robot is close enough to start settling
         if (!close && pose.distanceTo(target) < 7.5_in) {
             close = true;
-            params.maxLateralSpeed = max(abs(prevLateralOut), 4.7);
-            params.maxAngularSpeed = max(abs(prevLateralOut), 4.7);
+            params.maxLateralSpeed = max(abs(prevLateralOut), 0.47);  // 修正：使用合理的最小速度
+            params.maxAngularSpeed = max(abs(prevAngularOut), 0.47);  // 修正：使用正確的變量
         }
 
         // calculate error

@@ -8,7 +8,7 @@ using namespace units;
 
 namespace lemlib {
 
-static logger::Helper logHelper("lemlib/motions/moveToPoint");
+static logger::Helper logHelper("lemlib/motions/follow");
 
 /**
  * @brief function that returns elements in a file line, separated by a delimeter
