@@ -33,3 +33,11 @@ extern const Number drift_compensation;
 
 extern const Number angular_slew;
 extern const Number lateral_slew;
+
+// Forward declare Chassis
+namespace lemlib {
+    class Chassis;
+}
+
+// Declare the chassis object
+extern lemlib::Chassis chassis;
