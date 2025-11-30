@@ -11,6 +11,9 @@
 #include "units/Pose.hpp"
 #include <functional>
 
+// Include Chassis header to make lemlib::Chassis available
+#include "lemlib/chassis/Chassis.hpp"
+
 extern logger::Terminal terminal;
 
 extern lemlib::V5InertialSensor imu;
@@ -33,3 +36,6 @@ extern const Number drift_compensation;
 
 extern const Number angular_slew;
 extern const Number lateral_slew;
+
+// Declare the chassis object
+extern lemlib::Chassis chassis;
