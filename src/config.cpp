@@ -1,5 +1,5 @@
 #include "lemlib/config.hpp"
-
+#include "lemlib/chassis/Chassis.hpp"
 #include "lemlog/logger/sinks/terminal.hpp"
 #include "hardware/IMU/V5InertialSensor.hpp"
 #include "lemlib/tracking/TrackingWheelOdom.hpp"
@@ -46,3 +46,54 @@ const Number drift_compensation = 0;
 // 預設的角向/平移 slew 限制，控制加速度平滑度
 const Number angular_slew = 1;
 const Number lateral_slew = 0;
+
+
+// --- Chassis Class Configuration Example ---
+
+// Drivetrain settings
+lemlib::Drivetrain drivetrain {
+    &left_motors,
+    &right_motors,
+    track_width,
+    2.75_in, // Wheel diameter
+    360_rpm, // RPM
+    0 // Horizontal drift
+};
+
+// Lateral Controller Settings
+lemlib::ControllerSettings lateral_controller_settings {
+    0, // kP
+    0, // kI
+    0, // kD
+    0, // windupRange
+    1_in, // smallError
+    100_msec, // smallErrorTimeout
+    3_in, // largeError
+    500_msec, // largeErrorTimeout
+    0 // slew
+};
+
+// Angular Controller Settings
+lemlib::ControllerSettings angular_controller_settings {
+    0.05, // kP
+    0, // kI
+    0, // kD
+    0, // windupRange
+    1_stDeg, // smallError
+    100_msec, // smallErrorTimeout
+    3_stDeg, // largeError
+    500_msec, // largeErrorTimeout
+    0 // slew
+};
+
+// Odom Sensors
+lemlib::OdomSensors sensors {
+    &vertical_tracker,
+    nullptr,
+    &horizontal_tracker,
+    nullptr,
+    &imu
+};
+
+// Create the Chassis object
+lemlib::Chassis chassis(drivetrain, lateral_controller_settings, angular_controller_settings, sensors);
